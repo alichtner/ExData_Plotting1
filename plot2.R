@@ -7,7 +7,7 @@ data$timestamp <- as.POSIXct(data$timestamp, format = "%d/%m/%Y %H:%M:%S")
 data <- data[data$timestamp >= "2007-02-01",]
 data <- data[1:2880,]
 
-## Plot histogram of global active power for this timeset
+## Plot global active power over time
 png("plot2.png")
 plot(dataSub$timestamp, dataSub$Global_active_power, ylab = "Global Active Power (kilowatts)", type = "l", xlab = "")
 dev.off()

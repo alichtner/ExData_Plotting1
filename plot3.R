@@ -7,11 +7,13 @@ data$timestamp <- as.POSIXct(data$timestamp, format = "%d/%m/%Y %H:%M:%S")
 data <- data[data$timestamp >= "2007-02-01",]
 data <- data[1:2880,]
 
-## Plot histogram of global active power for this timeset
+## Plot various sub_metering curves over time
 png("plot3.png")
 plot(data$timestamp, data$Sub_metering_1, ylab = "Energy Sub metering", xlab = "", type = "n")
         lines(data$timestamp, data$Sub_metering_1,  lty = 1, col = "black")
         lines(data$timestamp, data$Sub_metering_2, lty = 1, col = "red")
         lines(data$timestamp, data$Sub_metering_3, lty = 1, col = "blue")
+        
+        ## include legend
         legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty = c(1,1,1), col = c("black", "red", "blue"))
 dev.off()
